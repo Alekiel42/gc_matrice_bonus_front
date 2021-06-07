@@ -1,30 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Grid from "./Grid";
 import Button from "./Button";
 import Info from "./Info";
+import Barcode from "./Barcode";
 
 
 const Matrix = () => {
   const matrixSymbols = ['', 'triangle', 'diamond', 'cross', 'circle'];
   let gameDisplayed = null;
-  const [symbolOnSquare, setSymbolOnSquare] = useState(Array(9).fill(matrixSymbols[0]));
+  const [symbolOnSquare, setSymbolOnSquare] = useState(Array(9).fill(matrixSymbols[1]));
   const [info, setInfo] = useState('');
+  const [infoStyle, setInfoStyle] = useState(null);
+
   const [isDisplayed, setIsDisplayed] = useState(true);
-
-  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  const alphabetArray = alphabet.split('');
-  const [code, setCode] = useState(['y', 'e', 'o', 'b', 'd', 'o', 'f', 'b', 'd', 'o', 'f', 'g','a', 'x', 'i']);
-
-  useEffect(()=> {
-    const interval = setInterval(() => {
-      const randomIndexAlphabet = Math.floor(Math.random() * 26);  
-      const randomIndexCode = Math.floor(Math.random() * code.length);
-      const codeCopy = [...code];
-      codeCopy[randomIndexCode] = alphabetArray[randomIndexAlphabet];
-      setCode(codeCopy);      
-    }, 30);
-    return () => clearInterval(interval);
-  });
+  const [attempt, setAttempt] = useState(1);
 
   const handleClick = (index) => {
     const copySymbolOnSquare = [...symbolOnSquare];
@@ -40,7 +29,7 @@ const Matrix = () => {
   };
 
   const handleButton = async () => {
-    try {
+    try {      
       let resultToSend = '';
       const copySymbolOnSquare = [...symbolOnSquare];
 
@@ -59,11 +48,14 @@ const Matrix = () => {
 
       if (response.status === 201) {
         const result = await response.json();
-        setInfo(`La rapport semble juste Agent. Rendez-vous aux coordonnées ${result.gps} pour confirmer votre position.`);
+        setInfo(`La rapport semble juste Agent. ${result.message}`);
         setIsDisplayed(false);
+        setInfoStyle('info-right');
       } else if (response.status === 202) {
-        const result = await response.json();
-        setInfo(result.message);
+        const result = await response.json(); 
+        setInfo(`Tentative ${attempt} : ${result.message}`);
+        setAttempt(attempt + 1);  
+        setInfoStyle('info-wrong');   
       } else {
         throw await response.json();
       }
@@ -88,18 +80,18 @@ const Matrix = () => {
       <div className="matrice-info">
         <h1>Matrix - GC9CEYK</h1>
         <div>
-            <p className="matrice-info-code">{code}</p>
+            <Barcode />
             <p>
               Cette interface est liée à la cache Mystery : GC9CEYK.
             </p>
             <p>
               Pour envoyer votre rapport via cette interface il vous faut avoir trouver les failles de la matrice : <a href="https://www.geocaching.com/geocache/GC9BNJM_matrice-the-other-side" target="_blank" rel="noreferrer">GC9BNJM</a>, <a href="https://www.geocaching.com/geocache/GC9BNMJ_matrice-which-side" target="_blank" rel="noreferrer">GC9BNMJ</a> et <a href="https://www.geocaching.com/geocache/GC9BNM2_matrice-inside" target="_blank" rel="noreferrer">GC9BNM2</a>.
-            </p>
+            </p>            
+            <Info info={info} style={infoStyle} />            
         </div>
       </div>
       <div className="matrice-game">
-        {gameDisplayed}
-        <Info info={info} />
+        {gameDisplayed}        
       </div>
     </main>
   );

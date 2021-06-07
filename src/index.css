@@ -14,8 +14,7 @@ body {
   font-family: 'Roboto', 'Oxygen', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background: linear-gradient(183deg, #000b00, #015205, #005c03);
+  background: linear-gradient(180deg, #000b00, #022e04,  #000b00);
 }
 
 
@@ -23,7 +22,6 @@ main {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: black;
   padding: 1em;
 }
 
@@ -56,15 +54,32 @@ h1 {
 
 button {
   margin-top: 2em;
-  padding: 1em;
-  border-radius: 1em;
-  border: 0px;
-  background-color:  var(--second-text-color);
-  color: black;
+  padding: 1em;  
+  border: none;
+  border-left: 3px solid var(--main-text-color);
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  background-color: black;
+}
+
+button:hover{
+  border-left:  3px solid black;
+  border-bottom: 3px solid var(--main-text-color);
 }
 
 .info {
   margin-top: 1em;
+  padding: 1em;
+  
+}
+
+.info-right {
+  border-left: 3px solid var(--main-text-color);
+}
+
+.info-wrong{
+  border-left: 3px solid red;
 }
 
 .matrice-info-code {
