@@ -1,11 +1,21 @@
 import React from "react";
 
 const Square = ({ symbol, onClick}) => {
-    // faire css avec image ? du coup symbol plus vas import image au lieux texte! 
-    const style = symbol ? `square ${symbol}` : `square`;
+    
+    // plus propre ? 
+    let image =  null;
+    if(symbol !== '') {
+        image = (
+            <img src={`../img/square-${symbol}.png`} alt="Logo" />
+        );
+    }
+    
     return(
-        <div className={style} onClick={onClick}>
-            {symbol}
+        <div 
+            className="square"
+            onClick={onClick}  
+        >
+            {image}         
         </div>
     )
 }

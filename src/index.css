@@ -1,27 +1,48 @@
 :root {
-  --main-text-color: #01FBF9;
+  --main-text-color: #008641;
+  --second-text-color: rgb(148, 148, 148);
 }
 
 * {
-  background-color: black;
-  color: var(--main-text-color);
+ 
+  color: var(--second-text-color);
   
 }
 
 body {
-  width: 400px;
   margin: auto;
   font-family: 'Roboto', 'Oxygen', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: linear-gradient(183deg, #000b00, #015205, #005c03);
+}
+
+
+main {  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: black;
+  padding: 1em;
+}
+
+.matrice-info {
+  padding: 2em;
+  max-width: 500px;
+}
+
+.matrice-game {
+  padding-top: 1em;
 }
 
 h1 {
-  font-family: 'Barriecito', cursive;
+  font-family: 'Barriecito', cursive;  
+  color: var(--main-text-color);
 }
 
 .box {
-  width: 300px;
+  width: 330px;
   margin: auto;
 }
 
@@ -31,24 +52,47 @@ h1 {
   justify-content: center;
 }
 
-.square {
-  box-sizing: border-box;
-  border: solid 1px var(--main-text-color);
-  width: 100px;
-  height: 100px;
-}
+
 
 button {
   margin-top: 2em;
   padding: 1em;
   border-radius: 1em;
   border: 0px;
-  background-color:  var(--main-text-color);
+  background-color:  var(--second-text-color);
   color: black;
 }
 
 .info {
   margin-top: 1em;
 }
+
+.matrice-info-code {
+  margin: 0;
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 4em;
+  color: var(--second-text-color);
+}
+
+/* =========================================
+Style Square
+ ========================================= */
+
+.square {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  border: solid 2px var(--main-text-color);
+  border-radius: 0.5em;
+  margin: 5px;
+  width: 100px;
+  height: 100px;
+}
+
+.square img {
+  width: 85px;
+  height: 85px;
+}
+
 
 
