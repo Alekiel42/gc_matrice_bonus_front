@@ -11,6 +11,8 @@ const Matrix = () => {
   const [symbolOnSquare, setSymbolOnSquare] = useState(Array(9).fill(matrixSymbols[1]));
   const [info, setInfo] = useState('');
   const [infoStyle, setInfoStyle] = useState(null);
+  const[stopBar, setStopBar] = useState(false);
+  const[gps, setGps] = useState('');
 
   const [isDisplayed, setIsDisplayed] = useState(true);
   const [attempt, setAttempt] = useState(1);
@@ -51,6 +53,8 @@ const Matrix = () => {
         setInfo(`La rapport semble juste Agent. ${result.message}`);
         setIsDisplayed(false);
         setInfoStyle('info-right');
+        setStopBar(true);
+        setGps(result.gps)
       } else if (response.status === 202) {
         const result = await response.json(); 
         setInfo(`Tentative ${attempt} : ${result.message}`);
@@ -80,7 +84,7 @@ const Matrix = () => {
       <div className="matrice-info">
         <h1>Matrix - GC9CEYK</h1>
         <div>
-            <Barcode />
+            <Barcode stopBar={stopBar} gps={gps} />
             <p>
               Cette interface est liée à la cache Mystery : GC9CEYK.
             </p>
