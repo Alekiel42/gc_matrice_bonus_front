@@ -1,9 +1,9 @@
 import React from "react";
 
-const Button = ({onClick}) => (
+const Button = ({onClick, textButton}) => (
 
          <button onClick={onClick} >
-            Valider la Matrice 
+            {textButton}
         </button>
 
 );
