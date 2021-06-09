@@ -8,7 +8,7 @@ import Barcode from "./Barcode";
 const Matrix = () => {
   const matrixSymbols = ['', 'triangle', 'diamond', 'cross', 'circle'];
   let gameDisplayed = null;
-  const [symbolOnSquare, setSymbolOnSquare] = useState(Array(9).fill(matrixSymbols[1]));
+  const [symbolOnSquare, setSymbolOnSquare] = useState(Array(9).fill(matrixSymbols[3]));
   const [info, setInfo] = useState('');
   const [infoStyle, setInfoStyle] = useState(null);
   const[stopBar, setStopBar] = useState(false);
@@ -47,6 +47,7 @@ const Matrix = () => {
       };
 
       const response = await fetch("https://matrice-gc-back.herokuapp.com/answer", requestOptions);
+      
 
       if (response.status === 201) {
         const result = await response.json();
@@ -54,7 +55,8 @@ const Matrix = () => {
         setIsDisplayed(false);
         setInfoStyle('info-right');
         setStopBar(true);
-        setGps(result.gps)
+        
+        setGps(result.gps);
       } else if (response.status === 202) {
         const result = await response.json(); 
         setInfo(`Tentative ${attempt} : ${result.message}`);
@@ -89,7 +91,7 @@ const Matrix = () => {
               Cette interface est liée à la cache Mystery : GC9CEYK.
             </p>
             <p>
-              Pour envoyer votre rapport via cette interface il vous faut avoir trouver les failles de la matrice : <a href="https://www.geocaching.com/geocache/GC9BNJM_matrice-the-other-side" target="_blank" rel="noreferrer">GC9BNJM</a>, <a href="https://www.geocaching.com/geocache/GC9BNMJ_matrice-which-side" target="_blank" rel="noreferrer">GC9BNMJ</a> et <a href="https://www.geocaching.com/geocache/GC9BNM2_matrice-inside" target="_blank" rel="noreferrer">GC9BNM2</a>.
+              Pour envoyer votre rapport via cette interface il vous faut avoir trouver les failles de la matrice : <a href="https://www.geocaching.com/geocache/GC9BNJM_matrice-the-other-side" target="_blank" rel="noreferrer">GC9BNJM</a>, <a href="https://www.geocaching.com/geocache/GC9BNMJ_matrice-which-side" target="_blank" rel="noreferrer">GC9BNMJ</a>,<a href="https://www.geocaching.com/geocache/GC9BNM2_matrice-inside" target="_blank" rel="noreferrer">GC9BNM2</a> et GC9CH9Q.
             </p>            
             <Info info={info} style={infoStyle} />            
         </div>
