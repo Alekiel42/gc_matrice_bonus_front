@@ -46,7 +46,7 @@ const Matrix = () => {
         body: JSON.stringify({ matrice: resultToSend }),
       };
 
-      const response = await fetch("http://localhost:4000/answer", requestOptions);
+      const response = await fetch("https://matrice-gc-back.herokuapp.com/answer", requestOptions);
 
       if (response.status === 201) {
         const result = await response.json();
