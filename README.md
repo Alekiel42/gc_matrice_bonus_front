@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+![screenshot du eu](./screenshot/matrice1.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Géocaching : cache bonus Matrice (front-end)
 
-## Available Scripts
+## Il était une fois... 
 
-In the project directory, you can run:
+Je suis passionnée par les énigmes et les jeux en tout genre : il était donc évident que je me passionne pour le géocaching et que je pose aussi des caches. Si vous ne connaissez pas le concept, n'hésitez pas à faire un tour ici sur le [site officiel](https://www.geocaching.com/play).
 
-### `yarn start`
+L'une des caches que j'ai cachées à Bordeaux nécessite de résoudre une énigme dont la réponse est à fournir sur ce site que j'ai développé. Vous pouvez consulter la fiche de cette cache sur [geocaching.com](https://www.geocaching.com/geocache/GC9CEYK)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Concrètement, que fait ce jeu ? 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Le front de ce jeu renvoie au back une réponse en fonction des formes sélectionnées dans la matrice. 
 
-### `yarn test`
+Si la réponse est juste, le back renvoie au front les coordonnées GPS qui indiquent l'emplacement de la dernière cache à trouver. Ces coordonnées sont affichées sous le code barre. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Vous pouvez tester le jeu hébergé sur [herokuapp](https://matrice-gc.herokuapp.com/). J'utilise la version freemium d'Heroku, le temps de chargement peut être très long car Heroku éteint les serveurs en cas de non utilisation du site. Pour valider la (fausse) bonne réponse, remplissez la matrice de "triangles". 
 
-### `yarn build`
+## Stack Technique (prérequis)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](https://img.shields.io/badge/-Node.js-05122A?style=for-the-badge&logo=Node.js) 
+![](https://img.shields.io/badge/-Git-05122A?style=for-the-badge&logo=Git)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Git : https://git-scm.com/downloads
 
-### `yarn eject`
+NodeJS (v12 ou supérieure) : https://nodejs.org/en/download/
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Comment l'utiliser ? 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Télécharger le repo sur votre machine
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+git clone <url du repo>
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. Installez les dépendances
 
-## Learn More
+```bash
+npm install 
+```
+3. Exécuter `react-scripts start` pour lancer l'application. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### L'information qui transite
 
-### Code Splitting
+Chaque forme possèdre une correspondance en chiffre qu'il faut garder en tête pour personnaliser la bonne réponse dans le back-end. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Forme    | Chiffre |
+| -------- | ------- |
+| vide     | 0       |
+| triangle | 1       |
+| losange  | 2       |
+| croix    | 3       |
+| cercle   | 4       |
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
