@@ -41,6 +41,8 @@ npm install
 ```
 3. Exécuter `react-scripts start` pour lancer l'application. 
 
+Le repo du back se trouve sur github : [gc_matrice_bonus_back](https://github.com/Alekiel42/gc_matrice_bonus_back). 
+
 
 ### L'information qui transite
 
