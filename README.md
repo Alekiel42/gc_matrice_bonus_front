@@ -14,7 +14,7 @@ Le front de ce jeu renvoie au back une réponse en fonction des formes sélectio
 
 Si la réponse est juste, le back renvoie au front les coordonnées GPS qui indiquent l'emplacement de la dernière cache à trouver. Ces coordonnées sont affichées sous le code barre. 
 
-Vous pouvez tester le jeu hébergé sur [herokuapp](https://matrice-gc.herokuapp.com/). J'utilise la version freemium d'Heroku, le temps de chargement peut être très long car Heroku éteint les serveurs en cas de non utilisation du site. Pour valider la (fausse) bonne réponse, remplissez la matrice de "triangles". 
+Vous pouvez tester le jeu hébergé sur [mon site](https://matrice.alexandrabercoff.com/). Pour valider la (fausse) bonne réponse, remplissez la matrice de "triangles". 
 
 ## Stack Technique (prérequis)
 
