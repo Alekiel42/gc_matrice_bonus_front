@@ -52,7 +52,7 @@ const Matrix = () => {
                 body: JSON.stringify({ matrice: resultToSend }),
             };
 
-            const response = await fetch("https://matrice-gc-back.herokuapp.com/answer", requestOptions);
+            const response = await fetch("https://matrice-api.alexandrabercoff.com/answer", requestOptions);
 
             setTextButton('Valider la Matrice');
 
