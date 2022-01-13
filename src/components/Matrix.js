@@ -98,7 +98,7 @@ const Matrix = () => {
                         Cette interface est liée à la cache Mystery : GC9CEYK.
             </p>
                     <p>
-                        Pour envoyer votre rapport via cette interface il vous faut avoir trouver les failles de la matrice : <a href="https://www.geocaching.com/geocache/GC9BNJM_matrice-the-other-side" target="_blank" rel="noreferrer">GC9BNJM</a>, <a href="https://www.geocaching.com/geocache/GC9BNMJ_matrice-which-side" target="_blank" rel="noreferrer">GC9BNMJ</a>,<a href="https://www.geocaching.com/geocache/GC9BNM2_matrice-inside" target="_blank" rel="noreferrer">GC9BNM2</a> et GC9CH9Q.
+                        Pour envoyer votre rapport via cette interface il vous faut avoir trouvé les failles de la matrice : <a href="https://www.geocaching.com/geocache/GC9BNJM_matrice-the-other-side" target="_blank" rel="noreferrer">GC9BNJM</a>, <a href="https://www.geocaching.com/geocache/GC9BNMJ_matrice-which-side" target="_blank" rel="noreferrer">GC9BNMJ</a>,<a href="https://www.geocaching.com/geocache/GC9BNM2_matrice-inside" target="_blank" rel="noreferrer">GC9BNM2</a> et GC9CH9Q.
             </p>
                     <Info info={info} style={infoStyle} />
                 </div>
